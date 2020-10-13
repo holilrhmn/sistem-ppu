@@ -19,7 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
     /*
-     * Outlets Endpoints
+     * TPS Endpoints
      */
-    Route::get('outlets', 'OutletController@index')->name('outlets.index');
+    Route::get('tps', 'TPSController@index')->name('tps.index');
+    Route::get('tps_latitut', 'TPSController@latitutLongitut')->name('tps.latitut');
 });
+
