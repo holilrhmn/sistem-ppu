@@ -6,6 +6,7 @@ use App\Sambutan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class SambutanController extends Controller
 {
@@ -17,7 +18,7 @@ class SambutanController extends Controller
     public function index()
     {
         $sambutan = Sambutan::latest()->get();
-        return view('Dashboard.sambutan.index',compact('sambutan'))
+        return view('Dashboard.sambutan.index', compact('sambutan'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -46,25 +47,25 @@ class SambutanController extends Controller
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
             $foto = $request->file('foto');
- 
-            $nama_file = time()."_".$foto->getClientOriginalName();
-        
-                // isi dengan nama folder tempat kemana file diupload
+
+            $nama_file = time() . "_" . $foto->getClientOriginalName();
+
+            // isi dengan nama folder tempat kemana file diupload
             $tujuan_upload = 'public/sambutan';
-            $foto->move($tujuan_upload,$nama_file);
+            $foto->move($tujuan_upload, $nama_file);
 
             $sambutan = Sambutan::create([
                 'foto'       => $nama_file,
                 'isi_sambutan'     => $request->input('isi_sambutan')
             ]);
-            if($sambutan) {
+            if ($sambutan) {
                 session()->flash('success', 'Data saved successfully');
             } else {
                 session()->flash('error', 'Data failed to save');
             }
-             return redirect()->route('dashboard.sambutan.index');
-        }else{  
-            return redirect('/dashboard/sambutan')->with('message', 'Anda tidak memiliki akses ini');
+            return redirect()->route('dashboard.sambutan.index');
+        } else {
+            return redirect('/dashboard/sambutan')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -92,8 +93,8 @@ class SambutanController extends Controller
             return view('Dashboard.sambutan.edit', [
                 'sambutan' => $sambutan,
             ]);
-        }else{
-            return redirect('/dashboard/sambutan')->with('message', 'Anda tidak memiliki akses ini');
+        } else {
+            return redirect('/dashboard/sambutan')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -117,19 +118,18 @@ class SambutanController extends Controller
                 $sambutan->update([
                     'isi_sambutan'     => $request->input('isi_sambutan')
                 ]);
-
             } else {
                 //remove old image
-                Storage::disk('public')->delete('public/sambutan/'.$sambutan->foto);
+                File::delete('public/sambutan/' . $sambutan->foto);
 
                 //upload new image
                 $foto = $request->file('foto');
- 
-                $nama_file = time()."_".$foto->getClientOriginalName();
-            
-                    // isi dengan nama folder tempat kemana file diupload
+
+                $nama_file = time() . "_" . $foto->getClientOriginalName();
+
+                // isi dengan nama folder tempat kemana file diupload
                 $tujuan_upload = 'public/sambutan';
-                $foto->move($tujuan_upload,$nama_file);
+                $foto->move($tujuan_upload, $nama_file);
 
 
                 $sambutan = Sambutan::findOrFail($sambutan->id);
@@ -137,18 +137,17 @@ class SambutanController extends Controller
                     'foto'       => $nama_file,
                     'isi_sambutan'     => $request->input('isi_sambutan')
                 ]);
-
             }
 
-            if($sambutan) {
+            if ($sambutan) {
                 session()->flash('success', 'Data Galeri Berhasil Diperbarui');
             } else {
                 session()->flash('error', 'Data Galeri Gagal Disimpan');
             }
-        
-                return redirect()->route('dashboard.sambutan.index');
-        }else{  
-            return redirect('/dashboard/sambutan')->with('message', 'Anda tidak memiliki akses ini');
+
+            return redirect()->route('dashboard.sambutan.index');
+        } else {
+            return redirect('/dashboard/sambutan')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -162,11 +161,12 @@ class SambutanController extends Controller
     {
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
+            File::delete('public/sambutan/' . $sambutan->foto);
             $sambutan->delete();
             return redirect()->route('dashboard.sambutan.index')
-            ->with('danger', 'Data Privacy Berhasil dihapus');
-        }else{
-            return redirect('/dashboard/sambutan')->with('message', 'Anda tidak memiliki akses ini');
+                ->with('danger', 'Data Sambutan Berhasil dihapus');
+        } else {
+            return redirect('/dashboard/sambutan')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 }

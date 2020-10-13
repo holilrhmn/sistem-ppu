@@ -34,7 +34,10 @@ Route::get('/tps14', 'TPSMapController@tps14')->name('tps14');
 
 
 Auth::routes();
+//dashboard
 Route::get('/home', 'HomeController@index')->name('home');
+
+//prefix untuk dashboard
 Route::prefix('dashboard')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::resource('/sambutan', 'SambutanController', ['except' => 'show', 'as' => 'dashboard']);
@@ -45,8 +48,15 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('/kontak', 'KontakController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/link', 'LinkController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/faq', 'FaqController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/regulasi', 'RegulasiController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/dokumen-pembangunan', 'DokumenPembangunanController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/user', 'UserController', ['except' => 'show', 'as' => 'dashboard']);
     });
 });
+
+//Unduh data Dokumen
+Route::get('/regulasi/download/{dokumen}', 'RegulasiController@download')->name('dokumen.download');
+Route::get('/dokumen-pembangunan/download/{dokumen}', 'DokumenPembangunanController@download')->name('pembangunan.download');
 /*
  * Outlets Routes
  */
@@ -93,7 +103,7 @@ Route::get('downloadFormatImportData', 'PerusahaanController@downloadFormatImpor
 Route::post('importFileExcel', 'PerusahaanController@importFileExcel')->name('importFileExcel');
 Route::get('showImportFileExcel', 'PerusahaanController@showImportFileExcel')->name('showImportFileExcel');
 
-
+//Laravel File Manager
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });

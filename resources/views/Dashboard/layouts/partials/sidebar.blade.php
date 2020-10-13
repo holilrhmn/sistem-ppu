@@ -33,15 +33,15 @@
             <li><a class="nav-link" href="{{ route('dashboard.pelayanan.index') }}">Standar Pelayanan PPU</a></li>
             <li><a class="nav-link" href="">Info Terkini</a></li>
             <li><a class="nav-link" href="{{ route('dashboard.link.index') }}">Link Terkait</a></li>
-            <li><a class="nav-link" href="">FAQ</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.faq.index') }}">FAQ</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Publikasi</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="{{ route('dashboard.sambutan.index') }}">Regulasi</a></li>
-            <li><a class="nav-link" href="{{ route('dashboard.struktur.index') }}">Dokumen Pembangunan</a></li>
-            <li><a class="nav-link" href="{{ route('dashboard.sejarah.index') }}">Kajian</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.regulasi.index') }}">Regulasi</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.dokumen-pembangunan.index') }}">Dokumen Pembangunan</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.kajian.index') }}">Kajian</a></li>
             
           </ul>
         </li>
