@@ -36,14 +36,15 @@ Route::get('/tps14', 'TPSMapController@tps14')->name('tps14');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('dashboard')->group(function () {
-    Route::group(['middleware' => 'auth'], function(){
-        Route::resource('/sambutan', 'SambutanController', ['except' => 'show' ,'as' => 'dashboard']);
-        Route::resource('/sejarah', 'SejarahController', ['except' => 'show' ,'as' => 'dashboard']);
-        Route::resource('/pelayanan', 'PelayananController', ['except' => 'show' ,'as' => 'dashboard']);
-        Route::resource('/kajian', 'KajianController', ['except' => 'show' ,'as' => 'dashboard']);
-        Route::resource('/struktur', 'StrukturOrganisasiController', ['except' => 'show' ,'as' => 'dashboard']);
-        Route::resource('/kontak', 'KontakController', ['except' => 'show' ,'as' => 'dashboard']);
-        Route::resource('/link', 'LinkController', ['except' => 'show' ,'as' => 'dashboard']);
+    Route::group(['middleware' => 'auth'], function () {
+        Route::resource('/sambutan', 'SambutanController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/sejarah', 'SejarahController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/pelayanan', 'PelayananController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/kajian', 'KajianController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/struktur', 'StrukturOrganisasiController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/kontak', 'KontakController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/link', 'LinkController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/faq', 'FaqController', ['except' => 'show', 'as' => 'dashboard']);
     });
 });
 /*
