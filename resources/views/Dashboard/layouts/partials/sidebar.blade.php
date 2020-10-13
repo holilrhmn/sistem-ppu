@@ -9,7 +9,7 @@
 
         <li class=""><a class="nav-link" href="{{ route('home') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
 
-        <li class="menu-header">Manajemen Data</li>
+        <li class="menu-header">Manajemen Konten</li>
         {{-- <li class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Auth</span></a>
           <ul class="dropdown-menu">
@@ -21,17 +21,30 @@
        
         <ul class="dropdown-menu" style="display: none;">
           <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-          <li class="active"><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
+          <li class=""><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
+          
         </ul>
         <li class="nav-item dropdown">
-          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Tentang Database PPU</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
-            <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
-            <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.sambutan.index') }}">Kata Sambutan</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.struktur.index') }}">Struktur Organisasi</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.sejarah.index') }}">Sejarah Database PPU</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.pelayanan.index') }}">Standar Pelayanan PPU</a></li>
+            <li><a class="nav-link" href="">Info Terkini</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.link.index') }}">Link Terkait</a></li>
+            <li><a class="nav-link" href="">FAQ</a></li>
           </ul>
         </li>
-        <li  class=" "><a class="nav-link" href=""><i class="fas fa-file-contract"></i>Produk</a></li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Publikasi</span></a>
+          <ul class="dropdown-menu">
+            <li><a class="nav-link" href="{{ route('dashboard.sambutan.index') }}">Regulasi</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.struktur.index') }}">Dokumen Pembangunan</a></li>
+            <li><a class="nav-link" href="{{ route('dashboard.sejarah.index') }}">Kajian</a></li>
+            
+          </ul>
+        </li>
         <li class="menu-header">Manajemen Menu Navigasi</li>
         <li  class=" "><a class="nav-link" href=""><i class="fas fa-file-contract"></i>Menu Navbar</a></li>
         <li  class=" "><a class="nav-link" href=""><i class="fas fa-file-contract"></i>Sub Menu Navbar</a></li>

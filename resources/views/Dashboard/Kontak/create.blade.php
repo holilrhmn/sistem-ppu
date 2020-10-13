@@ -1,27 +1,51 @@
+
 @extends('Dashboard.layouts.default')
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Tambah Data Sambutan</h3>
+            <h3 class="card-title">Tambah Data Kontak</h3>
         </div>
         <div class="card-body">
-            <form  action="{{ route('dashboard.sambutan.store')}}" method="POST" enctype="multipart/form-data">
+            <form  action="{{ route('dashboard.kontak.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-               
                 <div class="form-group">
-                    <label for=""@error('isi_sambutan') id="content class="text-danger" @enderror >Deskripsi</label>
-                    <textarea name="isi_sambutan" id="" rows="3" class="form-control my-editor @error('isi_sambutan') form-control is-invalid @enderror"
-                    placeholder="Masukkan Isi Sambutan"> {{old ('isi_sambutan') }} </textarea>
-                    @error('isi_sambutan')
+                  <label for=""@error('nama') class="text-danger" @enderror >Nama Sistem</label>
+                  <input type="text" name="nama" class="form-control @error('nama') form-control is-invalid @enderror"
+                  placeholder="Masukkan Nama Sistem" value="{{ old('nama') }}">
+                  @error('nama')
+                      <span  class="text-danger"> {{ $message }} </span>
+                  @enderror
+              </div>
+              <div class="form-group">
+                <label for=""@error('email') class="text-danger" @enderror >Email</label>
+                <input type="text" name="email" class="form-control @error('email') form-control is-invalid @enderror"
+                placeholder="Masukkan Alamat Email" value="{{ old('email') }}">
+                @error('email')
+                    <span  class="text-danger"> {{ $message }} </span>
+                @enderror
+              </div>
+              <div class="form-group">
+                <label for=""@error('telp') class="text-danger" @enderror >Telp</label>
+                <input type="text" name="telp" class="form-control @error('telp') form-control is-invalid @enderror"
+                placeholder="Masukkan No Telp" value="{{ old('telp') }}">
+                @error('telp')
+                    <span  class="text-danger"> {{ $message }} </span>
+                @enderror
+            </div>
+                <div class="form-group">
+                    <label for=""@error('alamat') id="content class="text-danger" @enderror >Alamat</label>
+                    <textarea name="alamat" id="" rows="3" class="form-control my-editor @error('alamat') form-control is-invalid @enderror"
+                    placeholder="Masukkan Alamat"> {{old ('alamat') }} </textarea>
+                    @error('alamat')
                         <span  class="text-danger"> {{ $message }} </span>
                     @enderror
                 </div>
 
                 <div class="form-group">
-                    <label for=""@error('foto') class="text-danger" @enderror >Foto</label>
-                    <input type="file" name="foto" class="form-control">
-                    @error('foto')
+                    <label for=""@error('logo') class="text-danger" @enderror >Logo</label>
+                    <input type="file" name="logo" class="form-control">
+                    @error('logo')
                         <span  class="text-danger"> {{ $message }} </span>
                     @enderror
                     <b><p class="">Format Foto: JPG,JPEG,PNG</p></b>

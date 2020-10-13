@@ -43,6 +43,7 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('/kajian', 'KajianController', ['except' => 'show' ,'as' => 'dashboard']);
         Route::resource('/struktur', 'StrukturOrganisasiController', ['except' => 'show' ,'as' => 'dashboard']);
         Route::resource('/kontak', 'KontakController', ['except' => 'show' ,'as' => 'dashboard']);
+        Route::resource('/link', 'LinkController', ['except' => 'show' ,'as' => 'dashboard']);
     });
 });
 /*

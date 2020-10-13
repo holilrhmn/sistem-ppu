@@ -1,31 +1,31 @@
+
 @extends('Dashboard.layouts.default')
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Tambah Data Sambutan</h3>
+            <h3 class="card-title">Tambah Data Link Terkait</h3>
         </div>
         <div class="card-body">
-            <form  action="{{ route('dashboard.sambutan.store')}}" method="POST" enctype="multipart/form-data">
+            <form  action="{{ route('dashboard.link.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-               
-                <div class="form-group">
-                    <label for=""@error('isi_sambutan') id="content class="text-danger" @enderror >Deskripsi</label>
-                    <textarea name="isi_sambutan" id="" rows="3" class="form-control my-editor @error('isi_sambutan') form-control is-invalid @enderror"
-                    placeholder="Masukkan Isi Sambutan"> {{old ('isi_sambutan') }} </textarea>
-                    @error('isi_sambutan')
-                        <span  class="text-danger"> {{ $message }} </span>
-                    @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for=""@error('foto') class="text-danger" @enderror >Foto</label>
-                    <input type="file" name="foto" class="form-control">
-                    @error('foto')
-                        <span  class="text-danger"> {{ $message }} </span>
-                    @enderror
-                    <b><p class="">Format Foto: JPG,JPEG,PNG</p></b>
-                </div>
+              <div class="form-group">
+                  <label for=""@error('title') class="text-danger" @enderror >Nama Link</label>
+                  <input type="text" name="title" class="form-control @error('title') form-control is-invalid @enderror"
+                  placeholder="Masukkan Nama Link" value="{{ old('title') }}">
+                  @error('title')
+                      <span  class="text-danger"> {{ $message }} </span>
+                  @enderror
+              </div>
+              <div class="form-group">
+                <label for=""@error('link') class="text-danger" @enderror >Link</label>
+                <input type="text" name="link" class="form-control @error('link') form-control is-invalid @enderror"
+                placeholder="Masukkan Alamat Link Terkait" value="{{ old('link') }}">
+                @error('link')
+                    <span  class="text-danger"> {{ $message }} </span>
+                @enderror
+              </div>
+             
                 <div class="form-group">
                     <input type="submit" value="Tambah" class="btn btn-primary mt-3">
                 </div>
