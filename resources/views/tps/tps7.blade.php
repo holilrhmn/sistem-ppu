@@ -1,10 +1,19 @@
-@extends('layouts.app')
+@extends('frontend.app')
 
 @section('title', 'Peta TPS PPU Armada 7')
 
 @section('content')
-<div class="card">
-    <div class="card-body" id="mapid"></div>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="card">
+           @include('includes.sidebar')
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="card">
+            <div class="card-body" id="mapid" style="width:55rem;"></div>
+        </div>
+    </div>
 </div>
 @endsection
 

@@ -27,11 +27,10 @@
     <!-- CSS files -->
     <link href="{{ asset('assets/frontend/tabler-dev/dist/css/tabler.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/frontend/tabler-dev/dist/css/demo.min.css') }}" rel="stylesheet"/>
-    <style>
-      body {
-      	display: none;
-      }
-    </style>
+    <script src="https://kit.fontawesome.com/d59806f883.js" crossorigin="anonymous"></script>
+    @yield('styles')
+
+   
   </head>
   <body class="antialiased">
     <div class="page">
@@ -42,7 +41,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <a href="." class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
-            <img src="./static/logo.svg" alt="Tabler" class="navbar-brand-image">
+            <img src="./static/logo.svg" alt="" class="navbar-brand-image"><h1>Sistem PPU</h1>
           </a>
           
         </div>
@@ -53,7 +52,7 @@
             <div class="container-xl">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="./index.html" >
+                  <a class="nav-link" href="/" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                     </span>
                     <span class="nav-link-title">
@@ -63,7 +62,7 @@
                 </li>
                 <li class="nav-item  dropdown">
                   <a class="nav-link dropdown-toggle" href="#navbar-base" data-toggle="dropdown" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
+                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-file-invoice"></i>
                     </span>
                     <span class="nav-link-title">
                      Tentang Database PPU
@@ -71,17 +70,17 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-columns  dropdown-menu-columns-2">
                     <li >
-                      <a class="dropdown-item" href="./empty.html" >
+                      <a class="dropdown-item" href="/sambutan" >
                         Kata Sambutan Organisasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item active" href="./blank.html" >
+                      <a class="dropdown-item active" href="/struktur-organisasi" >
                         Struktur Organisasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./buttons.html" >
+                      <a class="dropdown-item" href="/sejarah" >
                         Sejarah Database PPU
                       </a>
                     </li>
@@ -109,7 +108,7 @@
                 </li>
                 <li class="nav-item  dropdown">
                   <a class="nav-link dropdown-toggle" href="#navbar-base" data-toggle="dropdown" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
+                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-file-alt"></i>
                     </span>
                     <span class="nav-link-title">
                      Publikasi
@@ -135,7 +134,7 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./form-elements.html" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="9 11 12 14 20 6" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg>
+                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-address-book"></i>
                     </span>
                     <span class="nav-link-title">
                       Kontak
@@ -144,7 +143,7 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./form-elements.html" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="9 11 12 14 20 6" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg>
+                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-chart-bar"></i>
                     </span>
                     <span class="nav-link-title">
                       Statistik Tabular
@@ -152,8 +151,8 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./form-elements.html" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="9 11 12 14 20 6" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg>
+                  <a class="nav-link" href="{{ route('map') }}" >
+                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-map-marked-alt"></i>
                     </span>
                     <span class="nav-link-title">
                       Informasi Spasial
@@ -192,11 +191,21 @@
       </div>
     </div>
     <!-- Libs JS -->
+    
     <script src="{{ asset('assets/frontend/tabler-dev/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Tabler Core -->
     <script src="{{ asset('assets/frontend/tabler-dev/dist/js/tabler.min.js') }}"></script>
     <script>
       document.body.style.display = "block"
     </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+     <!-- Bootstrap core JavaScript-->
+     <script src="{{ asset('adminstyle/vendor/jquery/jquery.min.js') }}"></script>
+     <script src="{{ asset('adminstyle/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+ 
+     <!-- Core plugin JavaScript-->
+     <script src="{{ asset('adminstyle/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    @stack('scripts')
   </body>
 </html>

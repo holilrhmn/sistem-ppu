@@ -1,11 +1,21 @@
-@extends('layouts.app')
+@extends('frontend.app')
 
 @section('title', 'Peta TPS PPU')
 
 @section('content')
-<div class="card">
-    <div class="card-body" id="mapid"></div>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="card rounded shadow">
+           @include('includes.sidebar')
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="card rounded shadow">
+            <div class="card-body" id="mapid" style="width:55rem;"></div>
+        </div>
+    </div>
 </div>
+
 @endsection
 
 @section('styles')
