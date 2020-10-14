@@ -41,7 +41,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <a href="." class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
-            <img src="./static/logo.svg" alt="" class="navbar-brand-image"><h1>Sistem PPU</h1>
+            <img src="./static/logo.svg" alt="" class="navbar-brand-image"><h1>TERAS PPU</h1>
           </a>
           
         </div>
