@@ -170,7 +170,7 @@
         <div class="container-xl d-flex justify-content-center">
           <div class="card shadow text-center" style="width:50rem; height:15rem;">
             <div class="card-body">
-              <h5 class="card-title text-center">Sistem Informasi PPU</h5>
+              <h5 class="card-title text-center">TERAS PPU</h5>
               <div class="form-group">
                 <label  for="exampleFormControlSelect1"> Data Tempat Sampah</label>
                 <select class="form-control" id="exampleFormControlSelect1">
