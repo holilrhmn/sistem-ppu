@@ -40,7 +40,7 @@ class StrukturOrganisasiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'gambar' => 'required|min:5',
+            'gambar' => 'required|max:4096',
         ]);
 
         $lvl = Auth::user()->level;

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 
 //Baru
 //Route::get('/', 'OutletMapController@index');
-Route::get('/', 'TPSMapController@index');
+// Route::get('/', 'TPSMapController@index');
 Route::get('/tps1', 'TPSMapController@tps1')->name('tps1');
 Route::get('/tps2', 'TPSMapController@tps2')->name('tps2');
 Route::get('/tps3', 'TPSMapController@tps3')->name('tps3');
@@ -36,10 +36,21 @@ Route::get('/tps14', 'TPSMapController@tps14')->name('tps14');
 Auth::routes();
 //dashboard
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('welcome');  
+});
 
+//Tampilan Halaman Depan
+Route::get('/sambutan', 'Front\SambutanController@index')->name('sambutan');
+Route::get('/struktur-organisasi', 'Front\StrukturController@index')->name('struktur');
+Route::get('/sejarah', 'Front\SejarahController@index')->name('sejarah');
 //prefix untuk dashboard
 Route::prefix('dashboard')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
+        //Profil User
+        Route::get('/edit/profil', 'HomeController@editProfil')->name('dashboard.edit.profil');
+        Route::post('/update/{user}/profil', 'HomeController@updateProfil')->name('dashboard.update.profil');
+        Route::post('/changePassword','HomeController@changePassword')->name('dashboard.changePassword');
         Route::resource('/sambutan', 'SambutanController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/sejarah', 'SejarahController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/pelayanan', 'PelayananController', ['except' => 'show', 'as' => 'dashboard']);
@@ -51,8 +62,10 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('/regulasi', 'RegulasiController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/dokumen-pembangunan', 'DokumenPembangunanController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/user', 'UserController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/info-terkini', 'InfoTerkiniController', ['except' => 'show', 'as' => 'dashboard']);
     });
 });
+
 
 //Unduh data Dokumen
 Route::get('/regulasi/download/{dokumen}', 'RegulasiController@download')->name('dokumen.download');
