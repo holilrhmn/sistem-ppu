@@ -8,7 +8,7 @@
       <div class="row align-items-center">
         <div class="col-auto">
           <h2 class="page-title">
-            Sejarah Database PPU
+            Kajian
           </h2>
         </div>
       </div>
@@ -22,9 +22,9 @@
               <div class="d-flex">
                 <h2 class="h1 mt-0 mb-3"></h2>
               </div>
-              @foreach($sejarah as $s)
+              @foreach($kajian as $k)
             
-              <p> {!! $s->isi_sejarah !!}</p>
+              <p> {!! $k->isi_kajian !!}</p>
               @endforeach
             </div>
           </div>

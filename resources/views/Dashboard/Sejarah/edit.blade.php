@@ -19,15 +19,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label for=""@error('foto') class="text-danger" @enderror >Foto</label>
-                    <input type="file" name="foto" class="form-control">
-                    @error('foto')
-                        <span  class="text-danger"> {{ $message }} </span>
-                    @enderror
-                    <b><p class="">Format File : JPG,JPEG,PNG, mp4</p></b>
-                </div>
-
-                <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-primary mt-3">
                 </div>
             </form>

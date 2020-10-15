@@ -44,6 +44,15 @@ Route::get('/', function () {
 Route::get('/sambutan', 'Front\SambutanController@index')->name('sambutan');
 Route::get('/struktur-organisasi', 'Front\StrukturController@index')->name('struktur');
 Route::get('/sejarah', 'Front\SejarahController@index')->name('sejarah');
+Route::get('/standar-pelayanan', 'Front\StandarPelayananController@index')->name('pelayanan');
+Route::get('/info-terkini', 'Front\InfoController@index')->name('info');
+Route::get('/info-terkini/{slug}', 'Front\InfoController@show')->name('info.show');
+Route::get('/link-terkait', 'Front\LinkTerkaitController@index')->name('link');
+Route::get('/faq', 'Front\FaqController@index')->name('faq');
+Route::get('/regulasi', 'Front\RegulasiController@index')->name('regulasi');
+Route::get('/dokumen-pembangunan', 'Front\PembangunanController@index')->name('dokumen');
+Route::get('/kajian', 'Front\KajianController@index')->name('kajian');
+Route::get('/kontak', 'Front\KontakController@index')->name('kontak');
 //prefix untuk dashboard
 Route::prefix('dashboard')->group(function () {
     Route::group(['middleware' => 'auth'], function () {

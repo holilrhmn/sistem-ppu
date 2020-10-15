@@ -53,7 +53,7 @@
             <div class="container-xl">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="./index.html" >
+                  <a class="nav-link" href="/" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                     </span>
                     <span class="nav-link-title">
@@ -71,37 +71,37 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-columns  dropdown-menu-columns-2">
                     <li >
-                      <a class="dropdown-item" href="./empty.html" >
+                      <a class="dropdown-item" href="/sambutan" >
                         Kata Sambutan Organisasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item active" href="./blank.html" >
+                      <a class="dropdown-item " href="/struktur-organisasi" >
                         Struktur Organisasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./buttons.html" >
+                      <a class="dropdown-item" href="/sejarah" >
                         Sejarah Database PPU
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./cards.html" >
+                      <a class="dropdown-item" href="/standar-pelayanan" >
                         Standar Pelayanan Database PPU
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./dropdowns.html" >
+                      <a class="dropdown-item" href="/info-terkini" >
                         Info Terkini
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./icons.html" >
+                      <a class="dropdown-item" href="/link-terkait" >
                         Link Terkait
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./modals.html" >
+                      <a class="dropdown-item" href="/faq" >
                         FAQ
                       </a>
                     </li>
@@ -117,24 +117,24 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu  dropdown-menu">
                     <li >
-                      <a class="dropdown-item" href="./empty.html" >
+                      <a class="dropdown-item" href="/regulasi" >
                         Regulasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./blank.html" >
+                      <a class="dropdown-item" href="/dokumen-pembangunan" >
                         Dokumen Pembangunan
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./buttons.html" >
+                      <a class="dropdown-item" href="/kajian" >
                         Kajian
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./form-elements.html" >
+                  <a class="nav-link" href="/kontak" >
                     <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-address-book"></i>
                     </span>
                     <span class="nav-link-title">

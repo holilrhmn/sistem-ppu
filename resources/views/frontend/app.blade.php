@@ -28,6 +28,10 @@
     <link href="{{ asset('assets/frontend/tabler-dev/dist/css/tabler.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/frontend/tabler-dev/dist/css/demo.min.css') }}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/d59806f883.js" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     @yield('styles')
 
    
@@ -75,7 +79,7 @@
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item active" href="/struktur-organisasi" >
+                      <a class="dropdown-item " href="/struktur-organisasi" >
                         Struktur Organisasi
                       </a>
                     </li>
@@ -85,22 +89,22 @@
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./cards.html" >
+                      <a class="dropdown-item" href="/standar-pelayanan" >
                         Standar Pelayanan Database PPU
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./dropdowns.html" >
+                      <a class="dropdown-item" href="/info-terkini" >
                         Info Terkini
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./icons.html" >
+                      <a class="dropdown-item" href="/link-terkait" >
                         Link Terkait
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./modals.html" >
+                      <a class="dropdown-item" href="/faq" >
                         FAQ
                       </a>
                     </li>
@@ -116,24 +120,24 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu  dropdown-menu">
                     <li >
-                      <a class="dropdown-item" href="./empty.html" >
+                      <a class="dropdown-item" href="/regulasi" >
                         Regulasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./blank.html" >
+                      <a class="dropdown-item" href="/dokumen-pembangunan" >
                         Dokumen Pembangunan
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="./buttons.html" >
+                      <a class="dropdown-item" href="/kajian" >
                         Kajian
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./form-elements.html" >
+                  <a class="nav-link" href="/kontak" >
                     <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-address-book"></i>
                     </span>
                     <span class="nav-link-title">

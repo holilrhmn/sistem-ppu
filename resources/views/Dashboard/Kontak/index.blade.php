@@ -8,13 +8,13 @@
 
                 <div class="pull-left ">
 
-                    <h2>Data Sambutan</h2>
+                    <h2>Data Kontak</h2>
 
                 </div>
 
                 <div class="pull-right mt-1 mb-3">
 
-                    <a class="btn btn-primary" href="{{ route('dashboard.sambutan.create') }}"><i class="fas fa-plus-circle"></i>  Tambah Data Sambutan</a>
+                    <a class="btn btn-primary" href="{{ route('dashboard.kontak.create') }}"><i class="fas fa-plus-circle"></i>  Tambah Data Kontak</a>
 
                 </div>
 
