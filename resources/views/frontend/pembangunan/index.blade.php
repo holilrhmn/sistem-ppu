@@ -14,8 +14,10 @@
       </div>
     </div>
     
-<div class="table-responsive">
-    <table class="table table-vcenter">
+<div class="box">
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-vcenter card-table">
       <thead>
         <tr>
           <th>Judul</th>
@@ -40,7 +42,9 @@
       </tbody>
     </table>
   </div>
-  
+  </div>
+</div>
+
   
    
   </div>

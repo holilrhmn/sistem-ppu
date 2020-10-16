@@ -13,19 +13,24 @@
         </div>
       </div>
     </div>
-    @foreach($link as $l)
+    <div class="card">
+      <div class="card-body">
+        @foreach($link as $l)
     
-            <ul>
-            <a href="{{ $l->link }}">
-                <div>
-                    <h2 class=""> <i class="fas fa-circle small"></i> {{ $l->title }}</h2>
-                    <p style="margin-left: 17px;">{{ $l->link }}</p>
-                </div>
-            </a>
-                
-            </ul>
-       
-    @endforeach
+        <ul>
+        <a href="{{ $l->link }}">
+            <div>
+                <h2 class=""> <i class="fas fa-circle small"></i> {{ $l->title }}</h2>
+                <p style="margin-left: 17px;">{{ $l->link }}</p>
+            </div>
+        </a>
+            
+        </ul>
+   
+        @endforeach
+      </div>
+    </div>
+  
     {{ $link->links() }}
     
    

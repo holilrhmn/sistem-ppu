@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -14,7 +14,12 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="hero bg-primary text-white">
+                        <div class="hero-inner">
+                          <h2>Selamat Datang Kembali, {{ Auth::user()->name }}</h2>
+                          <p class="lead">Dashboard ini berfungsi untuk memanajemen konten TERAS PPU</p>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>

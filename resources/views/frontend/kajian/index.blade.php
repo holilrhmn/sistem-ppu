@@ -7,9 +7,9 @@
     <div class="page-header">
       <div class="row align-items-center">
         <div class="col-auto">
-          <h2 class="page-title">
+          <h1 class="">
             Kajian
-          </h2>
+          </h1>
         </div>
       </div>
     </div>

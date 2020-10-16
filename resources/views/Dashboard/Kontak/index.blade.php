@@ -49,7 +49,7 @@
                         <td><img style="height: 80px;width:100" src="{{ url('public/kontak/'.$a->logo) }}"></td>
                         <td>{{ $a->telp }}</td>
                         <td>{{ $a->email }}</td>
-                        <td>{{ $a->alamat }}</td>
+                        <td>{!! $a->alamat !!}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('dashboard.kontak.edit',$a) }}"><i class="fas fa-edit"></i>Edit</a>
                             <button href="{{route('dashboard.kontak.destroy', $a)}}" class="btn btn-danger btn" id="delete"><i class="fas fa-trash"></i> Hapus</button>

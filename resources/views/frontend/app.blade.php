@@ -12,7 +12,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Blank page - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <title>TERAS PPU - .</title>
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <meta name="msapplication-TileColor" content="#206bc4"/>
     <meta name="theme-color" content="#206bc4"/>
@@ -64,7 +64,7 @@
                     </span>
                   </a>
                 </li>
-                <li class="nav-item  dropdown">
+                <li class="nav-item  dropdown {{ Route::currentRouteNamed('sambutan','info','link', 'struktur', 'sejarah', 'pelayanan', 'faq') ? 'active' : '' }}">
                   <a class="nav-link dropdown-toggle" href="#navbar-base" data-toggle="dropdown" role="button" aria-expanded="false" >
                     <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-file-invoice"></i>
                     </span>
@@ -74,43 +74,43 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-columns  dropdown-menu-columns-2">
                     <li >
-                      <a class="dropdown-item" href="/sambutan" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('sambutan') ? 'active' : ''  }}" href="/sambutan" >
                         Kata Sambutan Organisasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item " href="/struktur-organisasi" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('struktur') ? 'active' : ''  }}" href="/struktur-organisasi" >
                         Struktur Organisasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="/sejarah" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('sejarah') ? 'active' : ''  }}" href="/sejarah" >
                         Sejarah Database PPU
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="/standar-pelayanan" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('pelayanan') ? 'active' : ''  }}" href="/standar-pelayanan" >
                         Standar Pelayanan Database PPU
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="/info-terkini" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('info') ? 'active' : ''  }}" href="/info-terkini" >
                         Info Terkini
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="/link-terkait" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('link') ? 'active' : ''  }}" href="/link-terkait" >
                         Link Terkait
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="/faq" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('faq') ? 'active' : ''  }}" href="/faq" >
                         FAQ
                       </a>
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item  dropdown">
+                <li class="nav-item  dropdown {{  Route::currentRouteNamed('regulasi', 'kajian', 'dokumen') ? 'active' : ''  }}">
                   <a class="nav-link dropdown-toggle" href="#navbar-base" data-toggle="dropdown" role="button" aria-expanded="false" >
                     <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-file-alt"></i>
                     </span>
@@ -120,23 +120,23 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu  dropdown-menu">
                     <li >
-                      <a class="dropdown-item" href="/regulasi" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('regulasi') ? 'active' : ''  }}" href="/regulasi" >
                         Regulasi
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="/dokumen-pembangunan" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('dokumen') ? 'active' : ''  }}" href="/dokumen-pembangunan" >
                         Dokumen Pembangunan
                       </a>
                     </li>
                     <li >
-                      <a class="dropdown-item" href="/kajian" >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('kajian') ? 'active' : ''  }}" href="/kajian" >
                         Kajian
                       </a>
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{  Route::currentRouteNamed('kontak') ? 'active' : ''  }}">
                   <a class="nav-link" href="/kontak" >
                     <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-address-book"></i>
                     </span>
@@ -154,7 +154,7 @@
                     </span>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{  Route::currentRouteNamed('map') ? 'active' : ''  }}">
                   <a class="nav-link" href="{{ route('map') }}" >
                     <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-map-marked-alt"></i>
                     </span>

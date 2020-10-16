@@ -33,7 +33,7 @@ Route::get('/tps14', 'TPSMapController@tps14')->name('tps14');
 
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 //dashboard
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', function () {
@@ -54,8 +54,10 @@ Route::get('/dokumen-pembangunan', 'Front\PembangunanController@index')->name('d
 Route::get('/kajian', 'Front\KajianController@index')->name('kajian');
 Route::get('/kontak', 'Front\KontakController@index')->name('kontak');
 //prefix untuk dashboard
+
 Route::prefix('dashboard')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
+        Route::get('/', 'HomeController@dashboard')->name('dashboard');
         //Profil User
         Route::get('/edit/profil', 'HomeController@editProfil')->name('dashboard.edit.profil');
         Route::post('/update/{user}/profil', 'HomeController@updateProfil')->name('dashboard.update.profil');
@@ -129,3 +131,6 @@ Route::get('showImportFileExcel', 'PerusahaanController@showImportFileExcel')->n
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+Route::get('/edit/profil', 'HomeController@editProfil')->name('edit.profil');
+Route::post('/update/{user}/profil', 'HomeController@updateProfil')->name('update.profil');
