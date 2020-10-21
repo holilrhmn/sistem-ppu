@@ -162,105 +162,25 @@
                      Informasi Spasial
                     </span>
                   </a>
-                  <ul class="dropdown-menu  dropdown-menu-columns  dropdown-menu-columns-3">
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('map') ? 'active' : ''  }}" href="/map" >
-                       Seluruh TPS
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps1') ? 'active' : ''  }}" href="/tps1" >
-                        TPS 1
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps2') ? 'active' : ''  }}" href="/tps2" >
-                        TPS 2
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps3') ? 'active' : ''  }}" href="/tps3" >
-                        TPS 3
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps4') ? 'active' : ''  }}" href="/tps4" >
-                        TPS 4
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps5') ? 'active' : ''  }}" href="/tps5" >
-                        TPS 5
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps6') ? 'active' : ''  }}" href="/tps6" >
-                        TPS 6
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps7') ? 'active' : ''  }}" href="/tps7" >
-                        TPS 7
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps8') ? 'active' : ''  }}" href="/tps8" >
-                        TPS 8
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps9') ? 'active' : ''  }}" href="/tps9" >
-                        TPS 9
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps10') ? 'active' : ''  }}" href="/tps10" >
-                        TPS 10
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps11') ? 'active' : ''  }}" href="/tps11" >
-                        TPS 11
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps12') ? 'active' : ''  }}" href="/tps12" >
-                        TPS 3
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps13') ? 'active' : ''  }}" href="/tps13" >
-                        TPS 3
-                      </a>
-                    </li>
-                    <li >
-                      <a class="dropdown-item {{  Route::currentRouteNamed('tps14') ? 'active' : ''  }}" href="/tps14" >
-                        TPS 3
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown ">
-                  <a class="nav-link dropdown-toggle" href="#navbar-base" data-toggle="dropdown" role="button" aria-expanded="false" >
-                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-file-alt"></i>
-                    </span>
-                    <span class="nav-link-title">
-                     Link
-                    </span>
-                  </a>
-                  
                   <ul class="dropdown-menu dropdown-menu  dropdown-menu">
-                 
-                    @foreach ($linkMenu as $l)
                     <li >
-                      <a class="dropdown-item" href="{{ $l->link }}" target=”_blank” >
-                          {{ $l->title }}
+                      <a class="dropdown-item {{  Route::currentRouteNamed('regulasi') ? 'active' : ''  }}" href="/regulasi" >
+                        Regulasi
                       </a>
                     </li>
-                    @endforeach
+                    <li >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('dokumen') ? 'active' : ''  }}" href="/dokumen-pembangunan" >
+                        Dokumen Pembangunan
+                      </a>
+                    </li>
+                    <li >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('kajian') ? 'active' : ''  }}" href="/kajian" >
+                        Kajian
+                      </a>
+                    </li>
                   </ul>
-                 
                 </li>
+                
               </ul>
               <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
                 <a href="{{ route('login') }}" class="btn btn-outline-primary btn-block">Login</a>

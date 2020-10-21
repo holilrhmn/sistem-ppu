@@ -75,6 +75,10 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('/user', 'UserController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/link-menu', 'LinkMenuController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/info-terkini', 'InfoTerkiniController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/merk', 'InfoTerkiniController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/type', 'InfoTerkiniController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/tahun', 'TahunController', ['except' => 'show', 'as' => 'dashboard']);
+        
     });
 });
 

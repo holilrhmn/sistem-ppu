@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\LinkMenu;
+use App\Tahun;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LinkMenuController extends Controller
+class TahunController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class LinkMenuController extends Controller
      */
     public function index()
     {
-        $link = LinkMenu::latest()->get();
-        return view('Dashboard.linkMenu.index',compact('link'))
+        $tahun = Tahun::latest()->get();
+        return view('Dashboard.tahun.index', compact('tahun'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -27,7 +27,7 @@ class LinkMenuController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.linkMenu.create');
+        return view('Dashboard.tahun.create');
     }
 
     /**
@@ -39,25 +39,25 @@ class LinkMenuController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'link' => 'required|min:8',
-            'title' => 'required|min:10',
+            'tahun' => 'required|min:4',
+            'jumlah' => 'required|min:1',
         ]);
 
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
-           
-            $link = LinkMenu::create([
-                'link'     => $request->input('link'),
-                'title'     => $request->input('title')
+
+            $tahun = Tahun::create([
+                'tahun'     => $request->input('tahun'),
+                'jumlah'     => $request->input('jumlah'),
             ]);
-            if($link) {
+            if ($tahun) {
                 session()->flash('success', 'Data saved successfully');
             } else {
                 session()->flash('error', 'Data failed to save');
             }
-             return redirect()->route('dashboard.link-menu.index');
-        }else{  
-            return redirect('/dashboard/link-menu')->with('message', 'Anda tidak memiliki akses ini');
+            return redirect()->route('dashboard.tahun.index');
+        } else {
+            return redirect('/dashboard/tahun')->with('message', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -78,15 +78,15 @@ class LinkMenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(LinkMenu $link)
+    public function edit(Tahun $tahun)
     {
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
-            return view('Dashboard.linkMenu.edit', [
-                'link' => $link,
+            return view('Dashboard.tahun.edit', [
+                'tahun' => $tahun,
             ]);
-        }else{
-            return redirect('/dashboard/link-menu')->with('message', 'Anda tidak memiliki akses ini');
+        } else {
+            return redirect('/dashboard/tahun')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -97,27 +97,24 @@ class LinkMenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LinkMenu $link)
+    public function update(Request $request, Tahun $tahun)
     {
-        $this->validate($request, [
-            'link' => 'required|min:8',
-            'title' => 'required|min:10',
-        ]);
+        
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
 
-            $link->update([
-                'title'=> $request->title,
-                'link'=> $request->link,
+            $tahun->update([
+                'tahun' => $request->tahun,
+                'jumlah' => $request->jumlah,
             ]);
-            if($link) {
-                session()->flash('success', 'Data Link Terkait Berhasil Diperbarui');
+            if ($tahun) {
+                session()->flash('success', 'Data tahun Berhasil Diperbarui');
             } else {
-                session()->flash('error', 'Data Link Terkait Gagal Disimpan');
+                session()->flash('error', 'Data tahun Gagal Disimpan');
             }
-            return redirect()->route('dashboard.link-menu.index');
-        }else{  
-            return redirect('/dashboard/link-menu')->with('error', 'Anda tidak memiliki akses ini');
+            return redirect()->route('dashboard.tahun.index');
+        } else {
+            return redirect('/dashboard/tahun')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -127,15 +124,15 @@ class LinkMenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LinkMenu $link)
+    public function destroy(Tahun $tahun)
     {
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
-            $link->delete();
-            return redirect()->route('dashboard.link-menu.index')
-            ->with('danger', 'Data Link Menu Berhasil dihapus');
-        }else{
-            return redirect('/dashboard/link-menu')->with('error', 'Anda tidak memiliki akses ini');
+            $tahun->delete();
+            return redirect()->route('dashboard.tahun.index')
+                ->with('danger', 'Data Pelayanan Berhasil dihapus');
+        } else {
+            return redirect('/dashboard/tahun')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 }

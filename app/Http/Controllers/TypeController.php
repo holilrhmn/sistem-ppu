@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\LinkMenu;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LinkMenuController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class LinkMenuController extends Controller
      */
     public function index()
     {
-        $link = LinkMenu::latest()->get();
-        return view('Dashboard.linkMenu.index',compact('link'))
+        $type = Type::latest()->get();
+        return view('Dashboard.merk.index', compact('type'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -27,7 +27,7 @@ class LinkMenuController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.linkMenu.create');
+        return view('Dashboard.type.create');
     }
 
     /**
@@ -39,25 +39,25 @@ class LinkMenuController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'link' => 'required|min:8',
-            'title' => 'required|min:10',
+            'name' => 'required|min:4',
+            'jumlah' => 'required|min:1',
         ]);
 
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
-           
-            $link = LinkMenu::create([
-                'link'     => $request->input('link'),
-                'title'     => $request->input('title')
+
+            $type = Type::create([
+                'name'     => $request->input('name'),
+                'jumlah'     => $request->input('jumlah'),
             ]);
-            if($link) {
+            if ($type) {
                 session()->flash('success', 'Data saved successfully');
             } else {
                 session()->flash('error', 'Data failed to save');
             }
-             return redirect()->route('dashboard.link-menu.index');
-        }else{  
-            return redirect('/dashboard/link-menu')->with('message', 'Anda tidak memiliki akses ini');
+            return redirect()->route('dashboard.type.index');
+        } else {
+            return redirect('/dashboard/type')->with('message', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -78,15 +78,15 @@ class LinkMenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(LinkMenu $link)
+    public function edit(Type $type)
     {
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
-            return view('Dashboard.linkMenu.edit', [
-                'link' => $link,
+            return view('Dashboard.type.edit', [
+                'type' => $type,
             ]);
-        }else{
-            return redirect('/dashboard/link-menu')->with('message', 'Anda tidak memiliki akses ini');
+        } else {
+            return redirect('/dashboard/type')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -97,27 +97,27 @@ class LinkMenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LinkMenu $link)
+    public function update(Request $request, Type $type)
     {
         $this->validate($request, [
-            'link' => 'required|min:8',
-            'title' => 'required|min:10',
+            'name' => 'required|min:5',
+            'jumlah' => 'required|min:5',
         ]);
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
 
-            $link->update([
-                'title'=> $request->title,
-                'link'=> $request->link,
+            $type->update([
+                'name' => $request->name,
+                'jumlah' => $request->jumlah,
             ]);
-            if($link) {
-                session()->flash('success', 'Data Link Terkait Berhasil Diperbarui');
+            if ($type) {
+                session()->flash('success', 'Data Kajian Berhasil Diperbarui');
             } else {
-                session()->flash('error', 'Data Link Terkait Gagal Disimpan');
+                session()->flash('error', 'Data Kajian Gagal Disimpan');
             }
-            return redirect()->route('dashboard.link-menu.index');
-        }else{  
-            return redirect('/dashboard/link-menu')->with('error', 'Anda tidak memiliki akses ini');
+            return redirect()->route('dashboard.type.index');
+        } else {
+            return redirect('/dashboard/type')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -127,15 +127,15 @@ class LinkMenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LinkMenu $link)
+    public function destroy(Type $type)
     {
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
-            $link->delete();
-            return redirect()->route('dashboard.link-menu.index')
-            ->with('danger', 'Data Link Menu Berhasil dihapus');
-        }else{
-            return redirect('/dashboard/link-menu')->with('error', 'Anda tidak memiliki akses ini');
+            $type->delete();
+            return redirect()->route('dashboard.type.index')
+                ->with('danger', 'Data Pelayanan Berhasil dihapus');
+        } else {
+            return redirect('/dashboard/type')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 }
