@@ -45,7 +45,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <a href="." class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
-            <img src="./static/logo.svg" alt="" class="navbar-brand-image"><h1>TERAS PPU</h1>
+            <img src="./static/logo.svg" alt="" class="navbar-brand-image"><h1>Terminal Data dan Informasi PPU</h1>
           </a>
           
         </div>
@@ -55,7 +55,7 @@
           <div class="navbar navbar-light">
             <div class="container-xl">
               <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item {{  Route::currentRouteNamed('homepage') ? 'active' : ''  }}">
                   <a class="nav-link" href="/" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                     </span>
@@ -154,17 +154,59 @@
                     </span>
                   </a>
                 </li>
-                <li class="nav-item {{  Route::currentRouteNamed('map') ? 'active' : ''  }}">
-                  <a class="nav-link" href="{{ route('map') }}" >
-                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-map-marked-alt"></i>
+                <li class="nav-item dropdown {{  Route::currentRouteNamed('map') ? 'active' : ''  }}">
+                  <a class="nav-link dropdown-toggle" href="#navbar-base" data-toggle="dropdown" role="button" aria-expanded="false" >
+                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-file-alt"></i>
                     </span>
                     <span class="nav-link-title">
-                      Informasi Spasial
+                     Informasi Spasial
                     </span>
                   </a>
-                
+                  <ul class="dropdown-menu dropdown-menu  dropdown-menu">
+                    <li >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('regulasi') ? 'active' : ''  }}" href="/regulasi" >
+                        Regulasi
+                      </a>
+                    </li>
+                    <li >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('dokumen') ? 'active' : ''  }}" href="/dokumen-pembangunan" >
+                        Dokumen Pembangunan
+                      </a>
+                    </li>
+                    <li >
+                      <a class="dropdown-item {{  Route::currentRouteNamed('kajian') ? 'active' : ''  }}" href="/kajian" >
+                        Kajian
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#navbar-base" data-toggle="dropdown" role="button" aria-expanded="false" >
+                    <span class="nav-link d-md-none d-lg-inline-block"><i class="fas fa-file-alt"></i>
+                    </span>
+                    <span class="nav-link-title">
+                     Link
+                    </span>
+                  </a>
+                  @if (Route::has('login'))
+                   
+                  @else
+                  <ul class="dropdown-menu dropdown-menu  dropdown-menu">
+                 
+                    @foreach ($linkMenu as $l)
+                    <li >
+                      <a class="dropdown-item" href="{{ $l->link }}" target=”_blank” >
+                          {{ $l->title }}
+                      </a>
+                    </li>
+                    @endforeach
+                  </ul>
+                  @endif
+                </li>
               </ul>
-              
+              <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                <a href="{{ route('login') }}" class="btn btn-outline-primary btn-block">Login</a>
+              </div>
             </div>
           </div>
         </div>

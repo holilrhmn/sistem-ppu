@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Link;
+use App\LinkMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LinkController extends Controller
+class LinkMenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $link = Link::latest()->get();
-        return view('Dashboard.link.index',compact('link'))
+        $link = LinkMenu::latest()->get();
+        return view('Dashboard.linkMenu.index',compact('link'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -27,7 +27,7 @@ class LinkController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.link.create');
+        return view('Dashboard.linkMenu.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class LinkController extends Controller
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
            
-            $link = Link::create([
+            $link = LinkMenu::create([
                 'link'     => $request->input('link'),
                 'title'     => $request->input('title')
             ]);
@@ -55,9 +55,9 @@ class LinkController extends Controller
             } else {
                 session()->flash('error', 'Data failed to save');
             }
-             return redirect()->route('dashboard.link.index');
+             return redirect()->route('dashboard.linkMenu.index');
         }else{  
-            return redirect('/dashboard/link')->with('message', 'Anda tidak memiliki akses ini');
+            return redirect('/dashboard/link-menu')->with('message', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -78,15 +78,15 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Link $link)
+    public function edit(LinkMenu $link)
     {
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
-            return view('Dashboard.link.edit', [
+            return view('Dashboard.linkMenu.edit', [
                 'link' => $link,
             ]);
         }else{
-            return redirect('/dashboard/link')->with('message', 'Anda tidak memiliki akses ini');
+            return redirect('/dashboard/link-menu')->with('message', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -97,7 +97,7 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Link $link)
+    public function update(Request $request, LinkMenu $link)
     {
         $this->validate($request, [
             'link' => 'required|min:8',
@@ -115,9 +115,9 @@ class LinkController extends Controller
             } else {
                 session()->flash('error', 'Data Link Terkait Gagal Disimpan');
             }
-            return redirect()->route('dashboard.link.index');
+            return redirect()->route('dashboard.linkMenu.index');
         }else{  
-            return redirect('/dashboard/link')->with('error', 'Anda tidak memiliki akses ini');
+            return redirect('/dashboard/link-menu')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 
@@ -127,15 +127,15 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Link $link)
+    public function destroy(LinkMenu $link)
     {
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
             $link->delete();
-            return redirect()->route('dashboard.link.index')
-            ->with('danger', 'Data Pelayanan Berhasil dihapus');
+            return redirect()->route('dashboard.linkMenu.index')
+            ->with('danger', 'Data Link Menu Berhasil dihapus');
         }else{
-            return redirect('/dashboard/link')->with('error', 'Anda tidak memiliki akses ini');
+            return redirect('/dashboard/link-menu')->with('error', 'Anda tidak memiliki akses ini');
         }
     }
 }

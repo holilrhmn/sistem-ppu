@@ -50,8 +50,7 @@ Manajemen User</a></li>
         </li>
         
         <li  class="{{  Route::currentRouteNamed('dashboard.kontak.index') ? 'active' : ''  }}"><a class="nav-link" href="{{ route('dashboard.kontak.index') }}"><i class="fas fa-address-book"></i>Kontak</a></li>
-        <li class="menu-header">Footer</li>
-        <li  class=" "><a class="nav-link" href="">Kontak</a></li>
+        <li  class="{{  Route::currentRouteNamed('dashboard.link-menu.index') ? 'active' : ''  }}"><a class="nav-link" href="{{ route('dashboard.link-menu.index') }}"><i class="fas fa-address-book"></i>Link Menu</a></li>
         {{-- <li><a class="nav-link {{ Route::currentRouteNamed('admin.tag.index') ? 'active' : '' }}" href="{{ route('admin.tag.index') }}"><i class="far fa-list-alt"></i> <span>Tag</span></a></li> --}}
       </ul>
       <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

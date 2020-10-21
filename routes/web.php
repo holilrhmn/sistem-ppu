@@ -36,9 +36,9 @@ Route::get('/tps14', 'TPSMapController@tps14')->name('tps14');
 Auth::routes(['register' => false]);
 //dashboard
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//homepage
+Route::get('/', 'Front\HomepageController@index')->name('homepage');
 
 //Tampilan Halaman Depan
 Route::get('/sambutan', 'Front\SambutanController@index')->name('sambutan');
@@ -73,6 +73,7 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('/regulasi', 'RegulasiController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/dokumen-pembangunan', 'DokumenPembangunanController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/user', 'UserController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/link-menu', 'LinkMenuController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/info-terkini', 'InfoTerkiniController', ['except' => 'show', 'as' => 'dashboard']);
     });
 });
