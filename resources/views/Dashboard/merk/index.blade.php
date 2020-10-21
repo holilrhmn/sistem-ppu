@@ -7,11 +7,11 @@
             <div class="col-lg-12 margin-tb">
 
                 <div class="pull-left ">
-                    <h2>Data Tipe Kendaraan</h2>
+                    <h2>Data Merk Kendaraan</h2>
                 </div>
 
                 <div class="pull-right mt-1 mb-3">
-                    <a class="btn btn-primary" href="{{ route('dashboard.type.create') }}"><i class="fas fa-plus-circle"></i>  Tambah Data Faq</a>
+                    <a class="btn btn-primary" href="{{ route('dashboard.merk.create') }}"><i class="fas fa-plus-circle"></i>  Tambah Data Merk</a>
                 </div>
 
             </div>
@@ -35,7 +35,7 @@
                    <tr>
                         <td>{{ ++$i }}</td>
                         <td>{{ $a->name }}</td>
-                        <td>{{ $a->jumlah }}</td>
+                
                         <td>
                             <a class="btn btn-primary" href="{{ route('dashboard.merk.edit',$a) }}"><i class="fas fa-edit"></i>Edit</a>
                             <button href="{{route('dashboard.merk.destroy', $a)}}" class="btn btn-danger btn" id="delete"><i class="fas fa-trash"></i> Hapus</button>

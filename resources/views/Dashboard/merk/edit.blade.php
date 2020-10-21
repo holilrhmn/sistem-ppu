@@ -17,14 +17,7 @@
                       <span  class="text-danger"> {{ $message }} </span>
                   @enderror
               </div>
-              <div class="form-group">
-                <label for=""@error('jumlah') class="text-danger" @enderror >Jumlah</label>
-                <input type="text" name="jumlah" class="form-control @error('jumlah') form-control is-invalid @enderror"
-                placeholder="Masukkan Pertanyaan" value="{{$merk->jumlah ?? old('jumlah') }}">
-                @error('jumlah')
-                    <span  class="text-danger"> {{ $message }} </span>
-                @enderror
-            </div>
+              
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-primary mt-3">
                 </div>

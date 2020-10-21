@@ -16,7 +16,6 @@ class CreateMerksTable extends Migration
         Schema::create('merks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('jumlah');
             $table->timestamps();
         });
     }

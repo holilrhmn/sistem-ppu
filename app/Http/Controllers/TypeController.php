@@ -16,7 +16,7 @@ class TypeController extends Controller
     public function index()
     {
         $type = Type::latest()->get();
-        return view('Dashboard.merk.index', compact('type'))
+        return view('Dashboard.type.index', compact('type'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -40,7 +40,7 @@ class TypeController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|min:4',
-            'jumlah' => 'required|min:1',
+
         ]);
 
         $lvl = Auth::user()->level;
@@ -48,7 +48,7 @@ class TypeController extends Controller
 
             $type = Type::create([
                 'name'     => $request->input('name'),
-                'jumlah'     => $request->input('jumlah'),
+
             ]);
             if ($type) {
                 session()->flash('success', 'Data saved successfully');
@@ -101,14 +101,14 @@ class TypeController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|min:5',
-            'jumlah' => 'required|min:5',
+
         ]);
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
 
             $type->update([
                 'name' => $request->name,
-                'jumlah' => $request->jumlah,
+
             ]);
             if ($type) {
                 session()->flash('success', 'Data Kajian Berhasil Diperbarui');

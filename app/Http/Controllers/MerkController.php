@@ -39,16 +39,16 @@ class MerkController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'merk' => 'required|min:4',
-            'jumlah' => 'required|min:1',
+            'name' => 'required|min:4',
+
         ]);
 
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
 
             $merk = Merk::create([
-                'merk'     => $request->input('merk'),
-                'jumlah'     => $request->input('jumlah'),
+                'name'     => $request->input('name'),
+
             ]);
             if ($merk) {
                 session()->flash('success', 'Data saved successfully');
@@ -100,14 +100,14 @@ class MerkController extends Controller
     public function update(Request $request, Merk $merk)
     {
         $this->validate($request, [
-            'merk' => 'required|min:5',
+            'name' => 'required|min:5',
         ]);
         $lvl = Auth::user()->level;
         if ($lvl == 100) {
 
             $merk->update([
-                'merk' => $request->merk,
-                'jumlah' => $request->jumlah,
+                'name' => $request->name,
+
             ]);
             if ($merk) {
                 session()->flash('success', 'Data Kajian Berhasil Diperbarui');

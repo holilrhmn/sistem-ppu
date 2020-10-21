@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="pull-right mt-1 mb-3">
-                    <a class="btn btn-primary" href="{{ route('dashboard.type.create') }}"><i class="fas fa-plus-circle"></i>  Tambah Data Faq</a>
+                    <a class="btn btn-primary" href="{{ route('dashboard.type.create') }}"><i class="fas fa-plus-circle"></i>  Tambah Data Type</a>
                 </div>
 
             </div>

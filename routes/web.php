@@ -53,6 +53,13 @@ Route::get('/regulasi', 'Front\RegulasiController@index')->name('regulasi');
 Route::get('/dokumen-pembangunan', 'Front\PembangunanController@index')->name('dokumen');
 Route::get('/kajian', 'Front\KajianController@index')->name('kajian');
 Route::get('/kontak', 'Front\KontakController@index')->name('kontak');
+Route::get('/statistik-tabular/merk', 'Front\StatistikTabular@merk')->name('merk');
+Route::get('/statistik-tabular/type', 'Front\StatistikTabular@type')->name('type');
+Route::get('/statistik-tabular/tahun', 'Front\StatistikTabular@tahun')->name('tahun');
+Route::get('/statistik-tabular/tps', 'Front\StatistikTabular@tps')->name('tps');
+Route::get('/statistik-tabular/rute', 'Front\StatistikTabular@rute')->name('rute');
+Route::get('/statistik-tabular/jalan', 'Front\StatistikTabular@jalan')->name('jalan');
+Route::get('/statistik-tabular/durasi', 'Front\StatistikTabular@durasi')->name('durasi');
 //prefix untuk dashboard
 
 Route::prefix('dashboard')->group(function () {
@@ -75,10 +82,9 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('/user', 'UserController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/link-menu', 'LinkMenuController', ['except' => 'show', 'as' => 'dashboard']);
         Route::resource('/info-terkini', 'InfoTerkiniController', ['except' => 'show', 'as' => 'dashboard']);
-        Route::resource('/merk', 'InfoTerkiniController', ['except' => 'show', 'as' => 'dashboard']);
-        Route::resource('/type', 'InfoTerkiniController', ['except' => 'show', 'as' => 'dashboard']);
-        Route::resource('/tahun', 'TahunController', ['except' => 'show', 'as' => 'dashboard']);
-        
+        Route::resource('/merk', 'MerkController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/type', 'TypeController', ['except' => 'show', 'as' => 'dashboard']);
+        Route::resource('/angkutan', 'AngkutanController', ['except' => 'show', 'as' => 'dashboard']);
     });
 });
 

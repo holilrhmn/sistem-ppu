@@ -7,11 +7,11 @@
             <div class="col-lg-12 margin-tb">
 
                 <div class="pull-left ">
-                    <h2>Data Tipe Kendaraan</h2>
+                    <h2>Data Angkutan</h2>
                 </div>
 
                 <div class="pull-right mt-1 mb-3">
-                    <a class="btn btn-primary" href="{{ route('dashboard.tahun.create') }}"><i class="fas fa-plus-circle"></i>  Tambah Data Faq</a>
+                    <a class="btn btn-primary" href="{{ route('dashboard.angkutan.create') }}"><i class="fas fa-plus-circle"></i>  Tambah Data Angkutan</a>
                 </div>
 
             </div>
@@ -26,19 +26,30 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Tahun</th>
+                    <th>Nama Angkutan </th>
+                    <th>Nama Supir</th>
+                    <th>No Plat</th>
+                    <th>Jumlah TPS</th>
+                    <th>Panjang rute</th>
+                    <th>Panjang Jalan</th>
+                    <th>Durasi Pengangkutan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($type  as $a)
+                @foreach($angkutan  as $a)
                    <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $a->tahun }}</td>
-                        
+                        <td>{{ $a->nama_angkutan }}</td>
+                        <td>{{  $a->nama_supir  }}</td>
+                        <td>{{  $a->no_plat  }}</td>
+                        <td>{{  $a->jumlah_tps  }}</td>
+                        <td>{{  $a->panjang_rute }}</td>
+                        <td>{{  $a->panjang_jalan  }}</td>
+                        <td>{{  $a->durasi_pengangkutan  }}</td>
                         <td>
-                            <a class="btn btn-primary" href="{{ route('dashboard.tahun.edit',$a) }}"><i class="fas fa-edit"></i>Edit</a>
-                            <button href="{{route('dashboard.tahun.destroy', $a)}}" class="btn btn-danger btn" id="delete"><i class="fas fa-trash"></i> Hapus</button>
+                            <a class="btn btn-primary" href="{{ route('dashboard.faq.edit',$a) }}"><i class="fas fa-edit"></i>Edit</a>
+                            <button href="{{route('dashboard.faq.destroy', $a)}}" class="btn btn-danger btn" id="delete"><i class="fas fa-trash"></i> Hapus</button>
                         </td>
                    </tr>
                 @endforeach
